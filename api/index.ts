@@ -3,6 +3,6 @@
 // invoke an exported Express app directly, so this file only needs to hand
 // back the same app.ts used locally and on Render. No app.listen call here,
 // Vercel manages the actual HTTP listening itself.
-import app from '../app';
+import app from '../app.js';
 
 export default app;
