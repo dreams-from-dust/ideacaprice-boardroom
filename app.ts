@@ -919,7 +919,12 @@ app.post('/api/debate/start', debateLimiter, async (req, res) => {
     res.json(cleanUserStringForApp({ messages }));
   } catch (err: any) {
     console.warn('Opening call failed, using deterministic fallback.', err.message || err);
-    res.json(cleanUserStringForApp(generateDeterministicOpening(idea, boardConfig)));
+    try {
+      res.json(cleanUserStringForApp(generateDeterministicOpening(idea, boardConfig)));
+    } catch (fallbackErr: any) {
+      console.error('Deterministic opening fallback also failed.', fallbackErr.message || fallbackErr);
+      res.status(500).json({ error: 'The boardroom is temporarily unavailable. Please try again in a moment.' });
+    }
   }
 });
 
@@ -982,7 +987,12 @@ app.post('/api/debate/round', debateLimiter, async (req, res) => {
     res.json(cleanUserStringForApp({ messages }));
   } catch (err: any) {
     console.warn('Round call failed, using deterministic fallback.', err.message || err);
-    res.json(cleanUserStringForApp(generateDeterministicRound(idea, boardConfig, action)));
+    try {
+      res.json(cleanUserStringForApp(generateDeterministicRound(idea, boardConfig, action)));
+    } catch (fallbackErr: any) {
+      console.error('Deterministic round fallback also failed.', fallbackErr.message || fallbackErr);
+      res.status(500).json({ error: 'The boardroom is temporarily unavailable. Please try again in a moment.' });
+    }
   }
 });
 
@@ -1010,8 +1020,13 @@ app.post('/api/debate/verdict', debateLimiter, async (req, res) => {
     res.json(cleanUserStringForApp({ report: finalReport }));
   } catch (err: any) {
     console.warn('Verdict call failed, using deterministic fallback.', err.message || err);
-    const report = generateDeterministicVerdict(idea, boardConfig, founderRounds);
-    res.json(cleanUserStringForApp({ report }));
+    try {
+      const report = generateDeterministicVerdict(idea, boardConfig, founderRounds);
+      res.json(cleanUserStringForApp({ report }));
+    } catch (fallbackErr: any) {
+      console.error('Deterministic verdict fallback also failed.', fallbackErr.message || fallbackErr);
+      res.status(500).json({ error: 'The boardroom is temporarily unavailable. Please try again in a moment.' });
+    }
   }
 });
 
@@ -1025,6 +1040,21 @@ app.post('/api/download-report', (req, res) => {
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.setHeader('Content-Disposition', `attachment; filename="${safeFilename}"`);
   res.send(html);
+});
+
+// ── GLOBAL ERROR HANDLER ─────────────────────────────────────────────────────
+// Final safety net. Any error that reaches this point means something threw
+// outside of a route's own try/catch, most useful in a serverless
+// environment like Vercel, where an unhandled error can otherwise surface as
+// an opaque, undiagnosable 500 with no body at all. This guarantees a real
+// JSON response and logs the actual message server side for debugging.
+app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  console.error('Unhandled server error:', err?.message || err);
+  if (res.headersSent) {
+    next(err);
+    return;
+  }
+  res.status(500).json({ error: 'Something went wrong on our end. Please try again in a moment.' });
 });
 
 export default app;

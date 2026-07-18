@@ -116,3 +116,27 @@
   }
 }
 
+/* Themed scrollbar, used on the auth modal (and any other scrollable panel
+   that opts in with this class) instead of the default browser scrollbar,
+   which renders as a jarring plain white/grey bar against this palette. */
+.themed-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-peach-medium) transparent;
+}
+
+.themed-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.themed-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.themed-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-peach-medium);
+  border-radius: 9999px;
+}
+
+.themed-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-peach-dark);
+}

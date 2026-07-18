@@ -141,8 +141,8 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }: AuthModalP
   };
 
   return (
-    <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 overflow-y-auto" id="auth-modal-screen">
-      <div className="relative bg-charcoal border-2 border-charcoal-light w-full max-w-md p-6 md:p-8 rounded-[2rem] shadow-2xl overflow-y-auto max-h-[90vh] my-8 font-sans themed-scrollbar">
+    <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 overflow-y-auto overflow-x-hidden" id="auth-modal-screen">
+      <div className="relative bg-charcoal border-2 border-charcoal-light w-full max-w-md p-6 md:p-8 rounded-[2rem] shadow-2xl overflow-y-auto overflow-x-hidden max-h-[90vh] my-8 font-sans themed-scrollbar">
         
         {/* Decorative ambient lights */}
         <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-24 bg-peach-medium/10 rounded-full blur-2xl pointer-events-none" />
