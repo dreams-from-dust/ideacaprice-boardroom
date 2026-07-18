@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Foreground layer for Android adaptive icon: transparent background,
+       content kept within the ~66% safe zone so it survives circle/squircle/
+       rounded-square masking on different launchers. -->
+  <circle cx="512" cy="512" r="248" fill="none" stroke="#8a6018" stroke-width="3" opacity="0.55"/>
+  <circle cx="512" cy="512" r="226" fill="none" stroke="#d9a53a" stroke-width="5" opacity="0.9"/>
+
+  <text x="512" y="562" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="256" fill="#d9a53a" text-anchor="middle" letter-spacing="-6">ic</text>
+
+  <rect x="422" y="600" width="164" height="9" rx="4.5" fill="#8a6018"/>
+</svg>

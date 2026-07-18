@@ -1,0 +1,6 @@
+{
+  "name": "IdeaCaprice",
+  "description": "A virtual AI boardroom debate team (The Fan, The Hater, and The Boss) that analyzes, aggressively critiques, and synthesizes strategic reports for your business ideas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

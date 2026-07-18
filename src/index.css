@@ -1,0 +1,118 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Single theme — Gallo-inspired light palette: warm parchment surfaces,
+     rich gold/brass accent, dark espresso-brown ink text. */
+  --color-peach-light: #f0e2b8;
+  --color-peach: #c9962f;
+  --color-peach-medium: #a8701f;
+  --color-peach-dark: #7c5518;
+  --color-charcoal-light: #e0d4b8;
+  --color-charcoal: #efe7d4;
+  --color-charcoal-dark: #f7f2e8;
+  --color-charcoal-soft: #eae1cb;
+  --color-charcoal-deep: #e3d7ba;
+  --color-cream: #2b2416;
+  --color-cream-dim: #6b6047;
+  /* Fixed dark ink used for text/icons sitting on top of the bright accent
+     (peach) color — e.g. button labels — same value as --color-cream here,
+     kept as a separate token since it serves a distinct semantic role. */
+  --color-ink: #2b2416;
+
+  --font-sans: "Satoshi", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Satoshi", "Georgia", ui-serif, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom print media overrides for exporting reports to crisp light themed PDFs */
+@media print {
+  @page {
+    size: auto;
+    margin: 0mm; /* Completely removes default browser header and footer stamps (like Page 1 of 1, URL, Date) */
+  }
+
+  /* Hide the entire interactive application header, footer, orbs, and dashboards */
+  #IdeaCaprice-header,
+  #dashboard-navbar,
+  #boardroom-strategic-intervention,
+  #unlock-strategy-center-btn,
+  #back-to-boardroom-btn,
+  #print-pdf-report-btn,
+  #test-new-idea-btn,
+  button,
+  form,
+  footer,
+  header,
+  .print\:hidden {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Make sure printing background colors and graphics are preserved */
+  * {
+    color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body, #root, #root > div, #IdeaCaprice-main, #IdeaCaprice-main > div, [class*="h-full"] {
+    background: white !important;
+    color: #1c1917 !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide custom sliders track in print entirely */
+  input[type="range"] {
+    display: none !important;
+  }
+
+  /* Reset layout constraints so everything expands vertically without clippings */
+  .min-h-screen, 
+  #IdeaCaprice-main {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+    position: static !important;
+    background: white !important;
+    color: #1c1917 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  #strategy-guide-container,
+  #strategy-guide-container > div {
+    max-width: 100% !important;
+    padding: 0px !important;
+    margin: 0 !important;
+    background: white !important;
+    color: #1c1917 !important;
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Force the standalone printable report to be the only thing visible and add pristine padding margins */
+  #premium-printable-document {
+    display: block !important;
+    background: white !important;
+    color: #111827 !important;
+    padding: 20mm !important; /* Elegant custom margin buffer on printed pages */
+  }
+}
+

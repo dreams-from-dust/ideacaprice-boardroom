@@ -1,0 +1,80 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net default catch-all: reject everything
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // User profile validation
+    function isValidUser(data) {
+      return data.userId is string 
+        && data.userId.size() <= 128 
+        && data.email is string 
+        && data.email.size() <= 256;
+    }
+
+    // Debate validation
+    function isValidDebate(data) {
+      return data.id is string 
+        && data.id.size() <= 128
+        && data.userId is string 
+        && data.userId.size() <= 128
+        && data.idea is string 
+        && data.idea.size() <= 5000
+        && data.messages is list
+        && data.messages.size() <= 50
+        && data.report is map
+        && data.report.verdict is string
+        && data.report.overallScore is int;
+    }
+
+    // Public, read-only connectivity check used on app boot — no sensitive data.
+    match /artifacts/{appId}/public/data/connection_test/{docId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Match Rules for per-user Debates (actual path used by the app:
+    // artifacts/{appId}/users/{userId}/debates/{debateId})
+    match /artifacts/{appId}/users/{userId}/debates/{debateId} {
+      allow get: if isOwner(userId);
+      allow list: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidDebate(incoming());
+      allow update: if false; // Debates are historical records and immutable once finalized
+      allow delete: if isOwner(userId);
+    }
+
+    // Match Rules for Users Collection
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidUser(incoming());
+      allow update: if isOwner(userId) && isValidUser(incoming()) && (
+        incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'email'])
+      );
+      allow delete: if false; // Profiles are immortal
+    }
+  }
+}
