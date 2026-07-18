@@ -189,7 +189,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
     <div class="idea-box">"${idea.replace(/"/g, ' ')}"</div>
     <div class="score-section">
       <div class="score-circle">
-        <span class="score-number">${overallScore}%</span>
+        <span class="score-number">${overallScore}</span>
         <span class="score-label">${statusText}</span>
       </div>
       <div class="verdict-box">
