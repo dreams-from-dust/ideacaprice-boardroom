@@ -26,7 +26,7 @@ Mobile: Capacitor
 Clone the repository and install dependencies.
 
 ```
-git clone https://github.com/YOUR_USERNAME/ideacaprice-boardroom.git
+git clone https://github.com/dreams-from-dust/ideacaprice-boardroom.git
 cd ideacaprice-boardroom
 npm install
 ```
