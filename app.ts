@@ -1,10 +1,22 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import rateLimit from 'express-rate-limit';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
+
+// ── CORS ──────────────────────────────────────────────────────────────────
+// The web version never needed this: the page and the API always shared the
+// same origin, whether on localhost, Render, or Vercel. The Android APK is
+// different. Capacitor's WebView runs the app under its own origin
+// (https://localhost, per capacitor.config.ts) while calling out to the
+// separately deployed backend, which is a genuine cross origin request. Left
+// unhandled, the WebView blocks it before any response comes back, which
+// surfaces in the app as a generic, unhelpful "failed to fetch" with no
+// further detail, exactly the symptom this is fixing.
+app.use(cors());
 
 app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true, limit: '2mb' }));
