@@ -4,6 +4,8 @@
 
 IdeaCaprice Boardroom is a full stack web and mobile application that puts a business idea in front of an AI powered advisory board and asks the founder to defend it, rather than simply generating a report and stopping there. It is built with a React and TypeScript frontend, an Express backend that mediates every call to a large language model through Groq, Firebase for authentication and data persistence, and a native Android build produced with Capacitor.
 
+The live application can be tried directly at https://ideacaprice-boardroom.vercel.app.
+
 ## The problem it responds to
 
 Automated business idea validation is not a new category. Several existing products already occupy it, some with real user bases and, in certain cases, live market data grounding this project intentionally does not attempt to compete with. The honest starting position for this project was that building another version of the same one shot report generator would add nothing meaningful to that space. The actual opportunity was in the interaction model itself: almost every existing tool in this category produces a static, one shot output. None of the ones reviewed during this project's planning offered a genuinely interactive, multi turn argument the user could steer in real time.

@@ -471,45 +471,45 @@ export default function IdeaInput({ onSubmit, isLoading }: IdeaInputProps) {
     <div className="w-full max-w-5xl mx-auto px-4 py-6 md:py-12 animate-fadeIn font-sans" id="idea-selection-panel">
 
       {/* ── HERO BANNER ── */}
-      <div className="w-full bg-peach rounded-2xl sm:rounded-[3rem] p-5 sm:p-10 md:p-12 text-ink relative overflow-hidden shadow-2xl border border-white/20 select-none mb-8 flex flex-col md:flex-row items-center gap-5 sm:gap-10 min-h-[200px] sm:min-h-[280px]">
-        <div className="shrink-0 flex items-center justify-center p-2 sm:p-3 relative bg-peach-light/25 rounded-2xl sm:rounded-[2rem] border border-white/20 shadow-xl">
+      <div className="w-full bg-charcoal-dark border-2 border-charcoal-light rounded-2xl sm:rounded-[3rem] p-5 sm:p-10 md:p-12 relative overflow-hidden shadow-xl select-none mb-8 flex flex-col md:flex-row items-center gap-5 sm:gap-10 min-h-[200px] sm:min-h-[280px]">
+        <div className="shrink-0 flex items-center justify-center p-2 sm:p-3 relative bg-peach-light/40 rounded-2xl sm:rounded-[2rem] border border-peach-light shadow-inner">
           <motion.div
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="w-24 h-24 sm:w-40 sm:h-40 rounded-full bg-peach-light/40 relative flex items-center justify-center border border-white/10 shadow-inner"
+            className="w-24 h-24 sm:w-40 sm:h-40 rounded-full bg-peach-light/60 relative flex items-center justify-center border border-peach-light shadow-inner"
           >
             <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-3 rounded-full bg-[var(--color-peach-light)] blur p-1" />
             <svg className="w-full h-full absolute z-10 bottom-1" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="80" cy="115" rx="55" ry="18" fill="var(--color-charcoal)" opacity="0.9" />
-              <path d="M40 100 C40 85, 52 82, 52 110" stroke="var(--color-charcoal)" strokeWidth="2.5" strokeLinecap="round" />
-              <circle cx="46" cy="78" r="8" stroke="var(--color-charcoal)" strokeWidth="2.5" fill="var(--color-peach-medium)" />
-              <path d="M48 83 Q54 85, 58 80" stroke="var(--color-charcoal)" strokeWidth="1.5" strokeLinecap="round" fill="none" />
-              <path d="M120 100 C120 85, 108 82, 108 110" stroke="var(--color-charcoal)" strokeWidth="2.5" strokeLinecap="round" />
-              <circle cx="114" cy="78" r="8" stroke="var(--color-charcoal)" strokeWidth="2.5" fill="var(--color-peach-medium)" />
-              <path d="M112 83 Q106 85, 102 80" stroke="var(--color-charcoal)" strokeWidth="1.5" strokeLinecap="round" fill="none" />
-              <path d="M68 135 C68 115, 92 115, 92 135" stroke="var(--color-charcoal)" strokeWidth="3" strokeLinecap="round" />
-              <circle cx="80" cy="98" r="10" stroke="var(--color-charcoal)" strokeWidth="2.8" fill="var(--color-peach-medium)" />
-              <rect x="76" y="55" width="8" height="6" rx="2" fill="var(--color-charcoal)" />
-              <path d="M72 40 C62 40, 62 18, 80 18 C98 18, 98 40, 88 40" stroke="var(--color-charcoal)" strokeWidth="2.5" fill="var(--color-peach-light)" />
-              <path d="M75 52 L85 52" stroke="var(--color-charcoal)" strokeWidth="2.5" />
-              <line x1="80" y1="10" x2="80" y2="14" stroke="var(--color-charcoal)" strokeWidth="2" strokeLinecap="round" />
-              <line x1="56" y1="24" x2="60" y2="27" stroke="var(--color-charcoal)" strokeWidth="2" strokeLinecap="round" />
-              <line x1="104" y1="24" x2="100" y2="27" stroke="var(--color-charcoal)" strokeWidth="2" strokeLinecap="round" />
+              <ellipse cx="80" cy="115" rx="55" ry="18" fill="var(--color-cream)" opacity="0.9" />
+              <path d="M40 100 C40 85, 52 82, 52 110" stroke="var(--color-cream)" strokeWidth="2.5" strokeLinecap="round" />
+              <circle cx="46" cy="78" r="8" stroke="var(--color-cream)" strokeWidth="2.5" fill="var(--color-peach-medium)" />
+              <path d="M48 83 Q54 85, 58 80" stroke="var(--color-cream)" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+              <path d="M120 100 C120 85, 108 82, 108 110" stroke="var(--color-cream)" strokeWidth="2.5" strokeLinecap="round" />
+              <circle cx="114" cy="78" r="8" stroke="var(--color-cream)" strokeWidth="2.5" fill="var(--color-peach-medium)" />
+              <path d="M112 83 Q106 85, 102 80" stroke="var(--color-cream)" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+              <path d="M68 135 C68 115, 92 115, 92 135" stroke="var(--color-cream)" strokeWidth="3" strokeLinecap="round" />
+              <circle cx="80" cy="98" r="10" stroke="var(--color-cream)" strokeWidth="2.8" fill="var(--color-peach-medium)" />
+              <rect x="76" y="55" width="8" height="6" rx="2" fill="var(--color-cream)" />
+              <path d="M72 40 C62 40, 62 18, 80 18 C98 18, 98 40, 88 40" stroke="var(--color-cream)" strokeWidth="2.5" fill="var(--color-peach-light)" />
+              <path d="M75 52 L85 52" stroke="var(--color-cream)" strokeWidth="2.5" />
+              <line x1="80" y1="10" x2="80" y2="14" stroke="var(--color-cream)" strokeWidth="2" strokeLinecap="round" />
+              <line x1="56" y1="24" x2="60" y2="27" stroke="var(--color-cream)" strokeWidth="2" strokeLinecap="round" />
+              <line x1="104" y1="24" x2="100" y2="27" stroke="var(--color-cream)" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </motion.div>
         </div>
         <div className="flex-grow flex flex-col justify-center text-center md:text-left gap-3">
           <div>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-charcoal font-sans leading-tight mb-1.5">Welcome to IdeaCaprice</h2>
-            <p className="text-charcoal/90 text-sm sm:text-base leading-relaxed font-sans font-medium max-w-2xl mx-auto md:mx-0">Feel less stressed and more confident with clear simple business planning boards.</p>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-cream font-display leading-tight mb-1.5">Welcome to IdeaCaprice</h2>
+            <p className="text-cream-dim text-sm sm:text-base leading-relaxed font-sans font-medium max-w-2xl mx-auto md:mx-0">Feel less stressed and more confident with clear simple business planning boards.</p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-2 self-center md:self-start">
-            <button type="button" onClick={() => { setIdea("A voice guided gamified math app with dynamic challenges and reward tokens for elementary pupils"); setActiveCategory("kids"); setBoardConfig("edtech"); setTimeout(() => { const t = document.getElementById("idea-textarea"); if (t) t.focus(); }, 100); }} className="bg-charcoal hover:bg-charcoal-light text-cream font-medium text-xs sm:text-sm rounded-2xl py-3 sm:py-4 px-4 sm:px-6 flex items-center gap-2.5 border border-charcoal cursor-pointer transition-all shadow-xl">
-              <Sparkles className="w-4 h-4 text-peach animate-pulse shrink-0" />
+            <button type="button" onClick={() => { setIdea("A voice guided gamified math app with dynamic challenges and reward tokens for elementary pupils"); setActiveCategory("kids"); setBoardConfig("edtech"); setTimeout(() => { const t = document.getElementById("idea-textarea"); if (t) t.focus(); }, 100); }} className="bg-peach hover:bg-peach-medium text-ink font-medium text-xs sm:text-sm rounded-2xl py-3 sm:py-4 px-4 sm:px-6 flex items-center gap-2.5 cursor-pointer transition-all shadow-lg">
+              <Sparkles className="w-4 h-4 text-ink animate-pulse shrink-0" />
               <span>Load Edtech Sample Pitch</span>
-              <ChevronRight className="w-3.5 h-3.5 text-peach shrink-0" />
+              <ChevronRight className="w-3.5 h-3.5 text-ink shrink-0" />
             </button>
-            <span className="text-xs text-charcoal/75 font-sans font-bold">Quick start preset</span>
+            <span className="text-xs text-cream-dim font-sans font-bold">Quick start preset</span>
           </div>
         </div>
       </div>

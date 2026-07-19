@@ -2,6 +2,10 @@
 
 An AI powered boardroom that debates your business idea instead of just scoring it. Submit an idea, watch two domain specific personas argue for and against it, then redirect questions, call an outside witness, or defend your reasoning before a final verdict is generated.
 
+Live app: https://ideacaprice-boardroom.vercel.app
+
+A pre-built Android APK is also available on the Releases page of this repository.
+
 ## Features
 
 * Domain specific personas generated per idea, not fixed generic characters
@@ -26,7 +30,7 @@ Mobile: Capacitor
 Clone the repository and install dependencies.
 
 ```
-git clone https://github.com/dreams-from-dust/ideacaprice-boardroom.git
+git clone https://github.com/YOUR_USERNAME/ideacaprice-boardroom.git
 cd ideacaprice-boardroom
 npm install
 ```

@@ -143,8 +143,11 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
 <head>
   <meta charset="UTF-8">
   <title>IdeaCaprice Boardroom Report: ${idea.substring(0, 30).replace(/[-/()]/g, ' ')}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; color: #111827; background-color: #ffffff; margin: 0; padding: 40px; line-height: 1.6; }
+    body { font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; color: #111827; background-color: #ffffff; margin: 0; padding: 40px; line-height: 1.6; }
     .container { max-width: 800px; margin: 0 auto; }
     .header { border-bottom: 2px solid ${scoreColorHex}; padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; }
     .header-logo { font-size: 22px; font-weight: 800; color: #111827; text-transform: uppercase; letter-spacing: -0.5px; }
@@ -152,7 +155,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
     .header-tag { font-size: 11px; font-family: monospace; color: #4b5563; letter-spacing: 1px; }
     .title { font-size: 28px; font-weight: 800; margin: 0 0 8px 0; color: #111827; }
     .meta { font-size: 12px; color: #4b5563; margin-bottom: 24px; }
-    .idea-box { background: #faf5f0; border-left: 4px solid ${scoreColorHex}; padding: 16px; border-radius: 4px; margin-bottom: 24px; font-size: 15px; color: #374151; font-style: italic; }
+    .idea-box { background: #f2f4f9; border-left: 4px solid ${scoreColorHex}; padding: 16px; border-radius: 4px; margin-bottom: 24px; font-size: 15px; color: #374151; font-style: italic; }
     .score-section { display: flex; gap: 24px; margin-bottom: 32px; align-items: center; padding: 20px 0; border-bottom: 1.5px solid var(--color-cream-dim); }
     .score-circle { width: 100px; height: 100px; border-radius: 50%; background: #fff; border: 5px solid ${scoreColorHex}; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .score-number { font-size: 32px; font-weight: 900; color: #111827; line-height: 1; }
@@ -169,7 +172,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
     .submetrics-grid { display: grid; grid-template-cols: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
     .submetric-card { background: transparent; padding: 8px 0; border-bottom: 1px solid var(--color-cream-dim); }
     .submetric-title { font-size: 11.5px; font-weight: bold; color: #374151; display: flex; justify-content: space-between; }
-    .submetric-bar { height: 6px; background: #faf5f0; border-radius: 3px; margin-top: 6px; overflow: hidden; }
+    .submetric-bar { height: 6px; background: #f2f4f9; border-radius: 3px; margin-top: 6px; overflow: hidden; }
     .submetric-fill { height: 100%; background: ${scoreColorHex}; border-radius: 3px; }
     .rejected-notice { background: #fef2f2; border: 2px solid #fca5a5; padding: 20px; border-radius: 8px; margin: 24px 0; }
     .rejected-notice h3 { color: #dc2626; font-size: 16px; margin: 0 0 8px 0; }
@@ -189,7 +192,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
     <div class="idea-box">"${idea.replace(/"/g, ' ')}"</div>
     <div class="score-section">
       <div class="score-circle">
-        <span class="score-number">${overallScore}</span>
+        <span class="score-number">${overallScore}%</span>
         <span class="score-label">${statusText}</span>
       </div>
       <div class="verdict-box">
@@ -231,9 +234,9 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
         <tr style="border-bottom: 1px solid var(--color-cream-dim);"><td style="padding: 8px 0;">${primaryMetricLabel || 'Customer Selling Price'}</td><td style="padding: 8px 0; text-align: right; font-weight: bold;">${selectedCurrency.symbol}${estimatedPrice.toLocaleString()}</td></tr>
         <tr style="border-bottom: 1px solid var(--color-cream-dim);"><td style="padding: 8px 0;">${secondaryMetricLabel || 'Unit Cost (COGS)'}</td><td style="padding: 8px 0; text-align: right; font-weight: bold;">${selectedCurrency.symbol}${unitCost.toLocaleString()}</td></tr>
         <tr style="border-bottom: 1px solid var(--color-cream-dim);"><td style="padding: 8px 0;">${projectedVolumeLabel || 'Target Monthly Volume'}</td><td style="padding: 8px 0; text-align: right; font-weight: bold;">${monthlyUnits}</td></tr>
-        <tr style="border-bottom: 1px solid var(--color-cream-dim); background-color: #faf5f0;"><td style="padding: 8px 4px; font-weight: bold;">Gross Profit Margin</td><td style="padding: 8px 4px; text-align: right; font-weight: bold; color: var(--color-peach-dark);">${estimatedPrice > 0 ? Math.round(((estimatedPrice - unitCost) / estimatedPrice) * 100) : 0}%</td></tr>
-        <tr style="border-bottom: 1px solid var(--color-cream-dim); background-color: #faf5f0;"><td style="padding: 8px 4px; font-weight: bold;">Monthly Projected Revenues</td><td style="padding: 8px 4px; text-align: right; font-weight: bold;">${selectedCurrency.symbol}${(estimatedPrice * monthlyUnits).toLocaleString()}</td></tr>
-        <tr style="background-color: #faf5f0;"><td style="padding: 8px 4px; font-weight: bold; color: var(--color-peach-dark);">Monthly Net Profit</td><td style="padding: 8px 4px; text-align: right; font-weight: bold; color: var(--color-peach-dark);">${selectedCurrency.symbol}${((estimatedPrice - unitCost) * monthlyUnits).toLocaleString()}</td></tr>
+        <tr style="border-bottom: 1px solid var(--color-cream-dim); background-color: #f2f4f9;"><td style="padding: 8px 4px; font-weight: bold;">Gross Profit Margin</td><td style="padding: 8px 4px; text-align: right; font-weight: bold; color: var(--color-peach-dark);">${estimatedPrice > 0 ? Math.round(((estimatedPrice - unitCost) / estimatedPrice) * 100) : 0}%</td></tr>
+        <tr style="border-bottom: 1px solid var(--color-cream-dim); background-color: #f2f4f9;"><td style="padding: 8px 4px; font-weight: bold;">Monthly Projected Revenues</td><td style="padding: 8px 4px; text-align: right; font-weight: bold;">${selectedCurrency.symbol}${(estimatedPrice * monthlyUnits).toLocaleString()}</td></tr>
+        <tr style="background-color: #f2f4f9;"><td style="padding: 8px 4px; font-weight: bold; color: var(--color-peach-dark);">Monthly Net Profit</td><td style="padding: 8px 4px; text-align: right; font-weight: bold; color: var(--color-peach-dark);">${selectedCurrency.symbol}${((estimatedPrice - unitCost) * monthlyUnits).toLocaleString()}</td></tr>
       </tbody>
     </table>
 

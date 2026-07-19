@@ -27,7 +27,7 @@ export default function WelcomeView({ onLoadInteractive }: WelcomeViewProps) {
 
       {/* Main App Name & Tagline styling */}
       <div className="text-center max-w-3xl mb-12">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-cream font-sans mb-4 leading-none">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-cream font-display mb-4 leading-none">
           IdeaCaprice Boardroom
         </h1>
         <p className="text-peach-medium font-sans font-medium text-xs sm:text-sm tracking-wide mb-6 leading-none">

@@ -55,17 +55,17 @@ export default function DebateArena({ idea, transcript, isBusy, onContinue, onRe
       name: haterName,
       title: 'Risk and audit consultant',
       icon: AlertTriangle,
-      bgColor: 'bg-charcoal/30 border-charcoal text-cream-dim',
-      avatarBg: 'bg-charcoal-light text-[var(--color-peach-medium)] border border-charcoal-light',
-      tagColor: 'bg-charcoal-light text-cream-dim border-charcoal',
+      bgColor: 'bg-risk-light/40 border-risk/20 text-cream-dim',
+      avatarBg: 'bg-risk text-ink',
+      tagColor: 'bg-risk-light text-risk-dark border-risk/30',
     },
     BOSS: {
       name: 'The Boss',
       title: 'Managing director',
       icon: Briefcase,
-      bgColor: 'bg-peach-medium/15 border-peach/30 text-cream',
-      avatarBg: 'bg-peach-medium text-ink',
-      tagColor: 'bg-peach/10 text-peach border-peach/30',
+      bgColor: 'bg-cream/5 border-cream/20 text-cream',
+      avatarBg: 'bg-cream text-ink',
+      tagColor: 'bg-cream/10 text-cream border-cream/30',
     },
     FOUNDER: {
       name: 'You',
@@ -200,19 +200,19 @@ export default function DebateArena({ idea, transcript, isBusy, onContinue, onRe
                   initial={{ opacity: 0, y: 20, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ type: 'spring', stiffness: 220, damping: 20 }}
-                  className={`flex gap-4 p-5 rounded-[1.5rem] border-2 ${currentAgent.bgColor} font-sans`}
+                  className={`flex gap-3 sm:gap-4 p-4 sm:p-5 rounded-[1.5rem] border-2 ${currentAgent.bgColor} font-sans`}
                   id={`dialogue-item-${msg.sender.toLowerCase()}`}
                 >
-                  <div className={`w-11 h-11 shrink-0 rounded-2xl flex items-center justify-center ${currentAgent.avatarBg} shadow-inner`}>
-                    <Icon className="w-5 h-5" />
+                  <div className={`w-9 h-9 sm:w-11 sm:h-11 shrink-0 rounded-2xl flex items-center justify-center ${currentAgent.avatarBg} shadow-inner`}>
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                      <div className="flex items-center gap-1.5">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-2 mb-2">
+                      <div className="flex flex-wrap items-center gap-1.5 min-w-0">
                         <span className="font-extrabold text-cream text-xs">{msg.senderName || currentAgent.name}</span>
                         <span className="text-xs text-cream-dim/50">• {currentAgent.title}</span>
                       </div>
-                      <span className={`px-2 py-0.5 rounded-md text-xs font-bold border-2 ${currentAgent.tagColor}`}>
+                      <span className={`self-start sm:self-auto px-2 py-0.5 rounded-md text-xs font-bold border-2 shrink-0 ${currentAgent.tagColor}`}>
                         {typeof msg.phase === 'number' ? `phase ${msg.phase}` : msg.phase}
                       </span>
                     </div>

@@ -5,8 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
     <title>IdeaCaprice</title>
+    <style>
+      /* Inline, so it paints instantly on a slow mobile connection, before
+         the main stylesheet or JS bundle has finished loading, avoiding a
+         flash of plain white/unstyled content during that gap. */
+      html, body {
+        background-color: #ffffff;
+        margin: 0;
+      }
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        z-index: 9999;
+      }
+      #initial-loader img {
+        width: 56px;
+        height: 56px;
+        border-radius: 18px;
+        animation: initial-loader-pulse 1.4s ease-in-out infinite;
+      }
+      @keyframes initial-loader-pulse {
+        0%, 100% { opacity: 0.55; transform: scale(0.96); }
+        50% { opacity: 1; transform: scale(1); }
+      }
+    </style>
   </head>
   <body>
+    <div id="initial-loader">
+      <img src="/icon.svg" alt="Loading" />
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

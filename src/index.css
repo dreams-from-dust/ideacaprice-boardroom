@@ -1,27 +1,41 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* Single theme — Gallo-inspired light palette: warm parchment surfaces,
-     rich gold/brass accent, dark espresso-brown ink text. */
-  --color-peach-light: #f0e2b8;
-  --color-peach: #c9962f;
-  --color-peach-medium: #a8701f;
-  --color-peach-dark: #7c5518;
-  --color-charcoal-light: #e0d4b8;
-  --color-charcoal: #efe7d4;
-  --color-charcoal-dark: #f7f2e8;
-  --color-charcoal-soft: #eae1cb;
-  --color-charcoal-deep: #e3d7ba;
-  --color-cream: #2b2416;
-  --color-cream-dim: #6b6047;
-  /* Fixed dark ink used for text/icons sitting on top of the bright accent
-     (peach) color — e.g. button labels — same value as --color-cream here,
-     kept as a separate token since it serves a distinct semantic role. */
-  --color-ink: #2b2416;
+  /* Single theme, warm elegant palette: tan and khaki surfaces, deep neutral
+     near-black text (no brown tint), gold used only as a thin accent line.
+     Token NAMES are kept exactly as before (peach/charcoal/cream/ink) so no
+     component class names had to change, only the actual color VALUES did. */
+  --color-peach-light: #ede3c8;
+  --color-peach: #b8964f;
+  --color-peach-medium: #967a3f;
+  --color-peach-dark: #6e5a2d;
+  --color-charcoal-light: #e4d7b3;
+  --color-charcoal: #ede2c4;
+  --color-charcoal-dark: #f5efdc;
+  --color-charcoal-soft: #ecdfbc;
+  --color-charcoal-deep: #ddcda0;
+  --color-cream: #1c1c1c;
+  --color-cream-dim: #5a5a55;
+  /* Fixed light text used specifically on top of the darker accent buttons,
+     where a warm off-white reads better than solid black. */
+  --color-ink: #f5efdc;
 
-  --font-sans: "Satoshi", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Satoshi", "Georgia", ui-serif, serif;
+  /* Additive tokens: a genuine second and third hue so the Hater (risk/red)
+     persona gets its own real color instead of reusing the main accent. */
+  --color-risk-light: #f3dcdc;
+  --color-risk: #a53d3d;
+  --color-risk-dark: #7a2b2b;
+
+  /* Dedicated to the header and footer bars specifically: a true neutral
+     near-black, deliberately without any brown undertone, distinct from the
+     warm tan used everywhere else in the app. */
+  --color-header-bg: #14141a;
+  --color-header-text: #f2ede1;
+
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Poppins", "Georgia", ui-serif, serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
@@ -116,27 +130,17 @@
   }
 }
 
-/* Themed scrollbar, used on the auth modal (and any other scrollable panel
-   that opts in with this class) instead of the default browser scrollbar,
-   which renders as a jarring plain white/grey bar against this palette. */
-.themed-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-peach-medium) transparent;
+/* Invisible scrollbar, used on the auth modal, the archives drawer, and any
+   other scrollable panel that opts in with this class. Scrolling still
+   works exactly as normal, the scrollbar track and thumb are just not
+   rendered, so tall content on login/signup and similar panels never shows
+   a visible scrollbar running down the side. */
+.invisible-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge/IE */
 }
 
-.themed-scrollbar::-webkit-scrollbar {
-  width: 8px;
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, newer Edge */
 }
 
-.themed-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.themed-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--color-peach-medium);
-  border-radius: 9999px;
-}
-
-.themed-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-peach-dark);
-}

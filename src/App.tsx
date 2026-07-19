@@ -393,28 +393,28 @@ export default function App() {
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-peach-medium/10 rounded-full blur-[140px] pointer-events-none select-none z-10" />
       <div className="absolute top-1/2 right-10 w-[450px] h-[450px] bg-peach/5 rounded-full blur-[120px] pointer-events-none select-none z-10" />
 
-      <header className="w-full border-b-2 border-charcoal bg-charcoal/90 backdrop-blur-md relative z-30 print:hidden font-sans">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+      <header className="w-full border-b-2 border-[var(--color-header-bg)] bg-[var(--color-header-bg)] backdrop-blur-md relative z-30 print:hidden font-sans">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-3">
           <div
-            className="flex items-center gap-3 cursor-pointer select-none"
+            className="flex items-center gap-3 cursor-pointer select-none min-w-0 flex-1"
             onClick={handleReset}
           >
             <img
               src="/icon.svg"
               alt="IdeaCaprice"
-              className="w-10 h-10 rounded-2xl shadow-lg border border-white/20 transition-all hover:scale-105"
+              className="w-10 h-10 rounded-2xl shadow-lg border border-white/20 transition-all hover:scale-105 shrink-0"
             />
-            <div>
-              <span className="font-extrabold tracking-tight text-cream text-lg block">
+            <div className="min-w-0">
+              <span className="font-extrabold tracking-tight text-[var(--color-header-text)] text-lg block truncate">
                 IdeaCaprice
               </span>
-              <span className="text-sm text-peach-medium font-bold block leading-none tracking-wide">
+              <span className="text-sm text-peach-medium font-bold block leading-none tracking-wide truncate">
                 Boardroom Stress Test
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-4 select-none">
+          <div className="flex items-center gap-3 sm:gap-4 select-none shrink-0">
             <button
               onClick={() => setIsHistoryOpen(true)}
               className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-charcoal hover:bg-charcoal-light border border-charcoal-light text-xs text-cream font-semibold cursor-pointer transition-all active:scale-95"
@@ -540,7 +540,7 @@ export default function App() {
         </div>
       </main>
 
-      <footer className="w-full border-t-2 border-charcoal bg-charcoal/65 py-8 text-xs text-cream-dim/65 print:hidden select-none font-sans">
+      <footer className="w-full border-t-2 border-[var(--color-header-bg)] bg-[var(--color-header-bg)] py-8 text-xs text-[var(--color-header-text)]/65 print:hidden select-none font-sans">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p>Copyright 2026 IdeaCaprice Boardroom. All rights reserved.</p>
         </div>

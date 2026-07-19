@@ -144,7 +144,6 @@ function cleanUserStringForApp(str: any): any {
     .replace(/\//g, ' or ')
     .replace(/\(/g, ' ')
     .replace(/\)/g, ' ')
-    .replace(/-/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }

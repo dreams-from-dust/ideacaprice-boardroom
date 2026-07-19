@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
   <defs>
     <linearGradient id="bgGrad" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#2c2519"/>
-      <stop offset="1" stop-color="#1a1611"/>
+      <stop offset="0" stop-color="#14141a"/>
+      <stop offset="1" stop-color="#0b0b0d"/>
     </linearGradient>
   </defs>
 
   <rect width="1024" height="1024" rx="230" fill="url(#bgGrad)"/>
 
   <!-- Emblem ring — nods to a boardroom seal / verdict stamp -->
-  <circle cx="512" cy="512" r="368" fill="none" stroke="#8a6018" stroke-width="4" opacity="0.55"/>
-  <circle cx="512" cy="512" r="336" fill="none" stroke="#d9a53a" stroke-width="7" opacity="0.9"/>
+  <circle cx="512" cy="512" r="368" fill="none" stroke="#b8964f" stroke-width="4" opacity="0.55"/>
+  <circle cx="512" cy="512" r="336" fill="none" stroke="#f2ede1" stroke-width="7" opacity="0.9"/>
 
   <!-- Wordmark -->
-  <text x="512" y="590" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="380" fill="#d9a53a" text-anchor="middle" letter-spacing="-8">ic</text>
+  <text x="512" y="590" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="380" fill="#f2ede1" text-anchor="middle" letter-spacing="-8">ic</text>
 
   <!-- Signature underline accent -->
-  <rect x="392" y="640" width="240" height="12" rx="6" fill="#8a6018"/>
+  <rect x="392" y="640" width="240" height="12" rx="6" fill="#b8964f"/>
 </svg>
