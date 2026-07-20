@@ -349,7 +349,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
 
           {/* Score + Verdict */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 pb-8 border-b-2 border-charcoal">
-            <div className={`md:col-span-1 rounded-2xl border-2 p-6 flex flex-col items-center justify-center text-center ${scoreTheme.border} ${scoreTheme.bg} ${scoreTheme.glow}`}>
+            <div className={`md:col-span-1 rounded-2xl border-2 p-4 sm:p-6 flex flex-col items-center justify-center text-center ${scoreTheme.border} ${scoreTheme.bg} ${scoreTheme.glow}`}>
               <span className="text-xs font-bold text-cream-dim/60 font-sans tracking-wide mb-2">Venture Viability</span>
               <div className="relative w-32 h-32 flex items-center justify-center print:hidden select-none">
                 <ResponsiveContainer width="100%" height="100%">
@@ -383,7 +383,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
 
           {/* REJECTION GATE: show only verdict block above when rejected */}
           {isRejected ? (
-            <div className="mb-10 bg-red-900/10 border-2 border-red-500/30 p-8 rounded-[2rem] text-center">
+            <div className="mb-10 bg-red-900/10 border-2 border-red-500/30 p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] text-center">
               <XCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
               <h3 className="text-base font-extrabold text-red-300 mb-3 font-sans">Proposal Rejected by Advisory Board</h3>
               <p className="text-cream-dim/70 text-sm leading-relaxed max-w-2xl mx-auto font-sans">
@@ -397,7 +397,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
           ) : (
             <>
               {/* Submetrics */}
-              <div className="mb-10 bg-charcoal border border-charcoal-light p-6 rounded-2xl">
+              <div className="mb-10 bg-charcoal border border-charcoal-light p-4 sm:p-6 rounded-2xl">
                 <div className="flex items-center gap-2 mb-4">
                   <BarChart3 className="w-4.5 h-4.5 text-peach-medium" />
                   <h3 className="text-xs font-bold text-cream-dim tracking-wide font-sans">Viability Submetrics Breakdown</h3>
@@ -425,7 +425,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                 <div className="space-y-8">
                   {strengths.length > 0 && (
-                    <div className="bg-gradient-to-br from-charcoal/90 to-charcoal-light/40 border-2 border-peach-medium/30 p-8 rounded-[2rem] hover:border-peach hover:shadow-2xl hover:shadow-peach-medium/5 hover:translate-y-[-2px] transition-all duration-350 relative overflow-hidden group">
+                    <div className="bg-gradient-to-br from-charcoal/90 to-charcoal-light/40 border-2 border-peach-medium/30 p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] hover:border-peach hover:shadow-2xl hover:shadow-peach-medium/5 hover:translate-y-[-2px] transition-all duration-350 relative overflow-hidden group">
                       <div className="absolute top-0 right-0 w-24 h-24 bg-peach-medium/5 rounded-full blur-xl pointer-events-none group-hover:bg-peach-medium/10 transition-colors" />
                       <div className="flex items-center gap-3.5 border-b border-charcoal pb-4 mb-5">
                         <span className="p-2.5 rounded-2xl bg-peach-medium/15 border border-peach-medium/30 text-peach group-hover:scale-110 transition-transform"><TrendingUp className="w-5 h-5 shadow-sm" /></span>
@@ -446,7 +446,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
                   )}
 
                   {mitigations.length > 0 && (
-                    <div className="bg-gradient-to-br from-charcoal/90 to-charcoal-light/40 border border-charcoal p-8 rounded-[2rem] hover:border-peach-medium hover:shadow-2xl hover:shadow-peach/5 hover:translate-y-[-2px] transition-all duration-350 relative overflow-hidden group">
+                    <div className="bg-gradient-to-br from-charcoal/90 to-charcoal-light/40 border border-charcoal p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] hover:border-peach-medium hover:shadow-2xl hover:shadow-peach/5 hover:translate-y-[-2px] transition-all duration-350 relative overflow-hidden group">
                       <div className="absolute top-0 right-0 w-24 h-24 bg-peach/5 rounded-full blur-xl pointer-events-none group-hover:bg-peach/10 transition-colors" />
                       <div className="flex items-center gap-3.5 border-b border-charcoal pb-4 mb-5">
                         <span className="p-2.5 rounded-2xl bg-peach/10 border border-peach/20 text-peach-medium group-hover:scale-110 transition-transform"><Lightbulb className="w-5 h-5" /></span>
@@ -469,7 +469,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
 
                 <div className="space-y-8">
                   {risks.length > 0 && (
-                    <div className="bg-gradient-to-br from-charcoal/95 to-peach-dark/10 border-2 border-peach-dark/30 p-8 rounded-[2rem] hover:border-peach-dark hover:shadow-2xl hover:shadow-peach-dark/5 hover:translate-y-[-2px] transition-all duration-350 relative overflow-hidden group">
+                    <div className="bg-gradient-to-br from-charcoal/95 to-peach-dark/10 border-2 border-peach-dark/30 p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] hover:border-peach-dark hover:shadow-2xl hover:shadow-peach-dark/5 hover:translate-y-[-2px] transition-all duration-350 relative overflow-hidden group">
                       <div className="absolute top-0 right-0 w-24 h-24 bg-peach-dark/5 rounded-full blur-xl pointer-events-none group-hover:bg-peach-dark/10 transition-colors" />
                       <div className="flex items-center gap-3.5 border-b border-charcoal pb-4 mb-5">
                         <span className="p-2.5 rounded-xl bg-peach-dark/15 border border-peach-dark/30 text-peach-dark group-hover:scale-110 transition-transform"><AlertTriangle className="w-5 h-5" /></span>
@@ -490,7 +490,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
                   )}
 
                   {executionPlan.length > 0 && (
-                    <div className="bg-gradient-to-br from-charcoal/90 to-charcoal-light/40 border border-charcoal p-8 rounded-[2rem] hover:border-peach-medium hover:shadow-2xl hover:shadow-peach/5 hover:translate-y-[-2px] transition-all duration-350 relative overflow-hidden group">
+                    <div className="bg-gradient-to-br from-charcoal/90 to-charcoal-light/40 border border-charcoal p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] hover:border-peach-medium hover:shadow-2xl hover:shadow-peach/5 hover:translate-y-[-2px] transition-all duration-350 relative overflow-hidden group">
                       <div className="absolute top-0 right-0 w-24 h-24 bg-peach-medium/5 rounded-full blur-xl pointer-events-none group-hover:bg-peach-medium/10 transition-colors" />
                       <div className="flex items-center gap-3.5 border-b border-charcoal pb-4 mb-5">
                         <span className="p-2.5 rounded-2xl bg-peach-medium/10 border border-peach-medium/20 text-peach group-hover:scale-110 transition-transform"><Milestone className="w-5 h-5" /></span>
@@ -516,7 +516,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
               </div>
 
               {/* Market Opportunity */}
-              <div className="bg-gradient-to-r from-charcoal/95 via-charcoal-light/50 to-charcoal/95 border-2 border-charcoal p-8 rounded-[2rem] mb-12 relative overflow-hidden group hover:border-peach-medium/40 transition-all duration-300">
+              <div className="bg-gradient-to-r from-charcoal/95 via-charcoal-light/50 to-charcoal/95 border-2 border-charcoal p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2rem] mb-12 relative overflow-hidden group hover:border-peach-medium/40 transition-all duration-300">
                 <div className="absolute -right-12 -bottom-12 w-48 h-48 bg-peach-medium/5 rounded-full blur-3xl pointer-events-none" />
                 <div className="flex items-center gap-3.5 border-b border-charcoal pb-4 mb-5">
                   <span className="p-2.5 rounded-2xl bg-peach-medium/10 border border-peach-medium/20 text-peach group-hover:scale-110 transition-transform"><Globe className="w-5 h-5" /></span>
@@ -530,7 +530,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
 
               {/* Unit Economics Sandbox — only shown when LLM provided real numbers */}
               {estimatedPrice > 0 && (
-                <div className="mb-12 bg-gradient-to-b from-charcoal to-charcoal-dark border-2 border-charcoal-light p-8 md:p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden" id="economics-projector">
+                <div className="mb-12 bg-gradient-to-b from-charcoal to-charcoal-dark border-2 border-charcoal-light p-5 sm:p-8 md:p-10 rounded-[1.5rem] sm:rounded-[2.5rem] shadow-2xl relative overflow-hidden" id="economics-projector">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-peach-medium/5 rounded-full blur-3xl pointer-events-none" />
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-charcoal pb-5 mb-8">
                     <div className="flex items-center gap-3.5 font-sans">
@@ -695,7 +695,7 @@ export default function StrategyGuide({ idea, report, onReset, onIntervene, isIn
 
               {/* Strategic Intervention */}
               {onIntervene && (
-                <div className="bg-gradient-to-r from-charcoal/95 via-[var(--color-charcoal-light)] to-charcoal/95 border-2 border-dashed border-peach-medium/40 p-8 rounded-[2.5rem] print:hidden relative overflow-hidden mb-8 shadow-2xl" id="boardroom-strategic-intervention">
+                <div className="bg-gradient-to-r from-charcoal/95 via-[var(--color-charcoal-light)] to-charcoal/95 border-2 border-dashed border-peach-medium/40 p-5 sm:p-8 rounded-[1.5rem] sm:rounded-[2.5rem] print:hidden relative overflow-hidden mb-8 shadow-2xl" id="boardroom-strategic-intervention">
                   <div className="absolute top-0 right-0 w-48 h-48 bg-peach/10 rounded-full blur-3xl pointer-events-none" />
                   <div className="absolute -left-12 -bottom-12 w-36 h-36 bg-peach-medium/5 rounded-full blur-2xl pointer-events-none" />
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 pb-4 border-b border-charcoal">

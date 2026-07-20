@@ -394,30 +394,30 @@ export default function App() {
       <div className="absolute top-1/2 right-10 w-[450px] h-[450px] bg-peach/5 rounded-full blur-[120px] pointer-events-none select-none z-10" />
 
       <header className="w-full border-b-2 border-[var(--color-header-bg)] bg-[var(--color-header-bg)] backdrop-blur-md relative z-30 print:hidden font-sans">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 h-16 sm:h-18 flex items-center justify-between gap-2 sm:gap-3">
           <div
-            className="flex items-center gap-3 cursor-pointer select-none min-w-0 flex-1"
+            className="flex items-center gap-2 sm:gap-3 cursor-pointer select-none min-w-0"
             onClick={handleReset}
           >
             <img
               src="/icon.svg"
               alt="IdeaCaprice"
-              className="w-10 h-10 rounded-2xl shadow-lg border border-white/20 transition-all hover:scale-105 shrink-0"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl shadow-lg border border-white/20 transition-all hover:scale-105 shrink-0"
             />
             <div className="min-w-0">
-              <span className="font-extrabold tracking-tight text-[var(--color-header-text)] text-lg block truncate">
+              <span className="font-extrabold tracking-tight text-[var(--color-header-text)] text-base sm:text-lg block leading-tight whitespace-nowrap">
                 IdeaCaprice
               </span>
-              <span className="text-sm text-peach-medium font-bold block leading-none tracking-wide truncate">
+              <span className="hidden sm:block text-sm text-peach-medium font-bold leading-none tracking-wide truncate">
                 Boardroom Stress Test
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-4 select-none shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-4 select-none shrink-0">
             <button
               onClick={() => setIsHistoryOpen(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-charcoal hover:bg-charcoal-light border border-charcoal-light text-xs text-cream font-semibold cursor-pointer transition-all active:scale-95"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl bg-charcoal hover:bg-charcoal-light border border-charcoal-light text-xs text-cream font-semibold cursor-pointer transition-all active:scale-95"
             >
               <Archive className="w-3.5 h-3.5 text-peach-medium" />
               <span className="hidden sm:inline text-xs font-semibold">Archives</span>
@@ -427,13 +427,13 @@ export default function App() {
               <div className="relative">
                 <button
                   onClick={() => setShowProfileDropdown(!showProfileDropdown)}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-2xl bg-peach/10 border-2 border-peach/30 text-peach hover:bg-peach/20 text-xs font-bold cursor-pointer transition-all"
+                  className="flex items-center gap-1 px-2.5 py-1.5 sm:px-3 rounded-xl sm:rounded-2xl bg-peach/10 border-2 border-peach/30 text-peach hover:bg-peach/20 text-xs font-bold cursor-pointer transition-all"
                 >
-                  <UserCheck className="w-3.5 h-3.5" />
-                  <span className="max-w-[100px] truncate">
+                  <UserCheck className="w-3.5 h-3.5 shrink-0" />
+                  <span className="max-w-[120px] sm:max-w-[160px] truncate">
                     {currentUser.isMock ? "Guest Mode" : currentUser.displayName}
                   </span>
-                  <ChevronDown className="w-3 h-3" />
+                  <ChevronDown className="w-3 h-3 shrink-0 hidden sm:block" />
                 </button>
 
                 {showProfileDropdown && (
@@ -459,10 +459,10 @@ export default function App() {
             ) : (
               <button
                 onClick={() => setIsAuthModalOpen(true)}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-2xl bg-peach hover:bg-peach-medium text-ink text-xs font-bold cursor-pointer transition-all active:scale-95 shadow-md"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl bg-peach hover:bg-peach-medium text-ink text-xs font-bold cursor-pointer transition-all active:scale-95 shadow-md"
               >
-                <UserX className="w-3.5 h-3.5" />
-                <span>Director Login</span>
+                <UserX className="w-3.5 h-3.5 shrink-0" />
+                <span className="whitespace-nowrap">Director Login</span>
               </button>
             )}
           </div>

@@ -112,7 +112,7 @@ export default function DebateArena({ idea, transcript, isBusy, onContinue, onRe
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 py-6 md:py-10 font-sans" id="debate-arena-wrapper">
+    <div className="w-full max-w-5xl mx-auto px-3 sm:px-4 py-6 md:py-10 font-sans" id="debate-arena-wrapper">
       {/* Top Header Information */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b-2 border-charcoal pb-6 mb-8 select-none">
         <div>
@@ -122,7 +122,7 @@ export default function DebateArena({ idea, transcript, isBusy, onContinue, onRe
               Live Boardroom Session
             </h2>
           </div>
-          <p className="text-cream-dim text-sm max-w-lg overflow-hidden text-ellipsis whitespace-nowrap">
+          <p className="text-cream-dim text-sm max-w-lg leading-relaxed">
             Venture under review: <span className="text-cream font-medium">"{idea}"</span>
           </p>
         </div>
@@ -172,7 +172,7 @@ export default function DebateArena({ idea, transcript, isBusy, onContinue, onRe
       </div>
 
       {/* Main Dialogue Chat Box */}
-      <div className="bg-charcoal/40 border-2 border-charcoal p-6 rounded-[2.5rem] min-h-[420px] flex flex-col justify-between mb-6 shadow-2xl relative overflow-hidden">
+      <div className="bg-charcoal/40 border-2 border-charcoal p-3 sm:p-6 rounded-[1.75rem] sm:rounded-[2.5rem] min-h-[420px] flex flex-col justify-between mb-6 shadow-2xl relative overflow-hidden">
         <div className="flex-1 space-y-6 relative z-10">
           <AnimatePresence initial={false}>
             {!hasOpening && (
@@ -200,11 +200,11 @@ export default function DebateArena({ idea, transcript, isBusy, onContinue, onRe
                   initial={{ opacity: 0, y: 20, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ type: 'spring', stiffness: 220, damping: 20 }}
-                  className={`flex gap-3 sm:gap-4 p-4 sm:p-5 rounded-[1.5rem] border-2 ${currentAgent.bgColor} font-sans`}
+                  className={`flex gap-2.5 sm:gap-4 p-3 sm:p-5 rounded-[1.25rem] sm:rounded-[1.5rem] border-2 ${currentAgent.bgColor} font-sans`}
                   id={`dialogue-item-${msg.sender.toLowerCase()}`}
                 >
-                  <div className={`w-9 h-9 sm:w-11 sm:h-11 shrink-0 rounded-2xl flex items-center justify-center ${currentAgent.avatarBg} shadow-inner`}>
-                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <div className={`w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-2xl flex items-center justify-center ${currentAgent.avatarBg} shadow-inner`}>
+                    <Icon className="w-5 h-5" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-2 mb-2">
@@ -249,46 +249,46 @@ export default function DebateArena({ idea, transcript, isBusy, onContinue, onRe
         {/* Continue-the-debate controls */}
         {hasOpening && (
           <div className="mt-8 pt-6 border-t-2 border-charcoal relative z-20 font-sans">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex flex-wrap items-center gap-2 mb-3">
               <button
                 type="button"
                 onClick={() => setInputMode('redirect')}
-                className={`text-sm font-bold px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 ${
+                className={`text-xs sm:text-sm font-bold px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                   inputMode === 'redirect' ? 'bg-peach text-ink' : 'bg-charcoal-light/50 text-cream-dim hover:text-cream'
                 }`}
               >
-                <MessageSquarePlus className="w-3.5 h-3.5" />
+                <MessageSquarePlus className="w-3.5 h-3.5 shrink-0" />
                 Ask a specific board member
               </button>
               <button
                 type="button"
                 onClick={() => setInputMode('defend')}
-                className={`text-sm font-bold px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 ${
+                className={`text-xs sm:text-sm font-bold px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                   inputMode === 'defend' ? 'bg-peach text-ink' : 'bg-charcoal-light/50 text-cream-dim hover:text-cream'
                 }`}
               >
-                <User className="w-3.5 h-3.5" />
+                <User className="w-3.5 h-3.5 shrink-0" />
                 Defend your idea
               </button>
               <button
                 type="button"
                 onClick={() => setInputMode('witness')}
-                className={`text-sm font-bold px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 ${
+                className={`text-xs sm:text-sm font-bold px-3 py-1.5 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                   inputMode === 'witness' ? 'bg-peach text-ink' : 'bg-charcoal-light/50 text-cream-dim hover:text-cream'
                 }`}
               >
-                <Scale className="w-3.5 h-3.5" />
+                <Scale className="w-3.5 h-3.5 shrink-0" />
                 Call a witness
               </button>
             </div>
 
             {inputMode === 'redirect' && (
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs text-cream-dim/60 font-bold">Direct this to:</span>
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <span className="text-xs text-cream-dim/60 font-bold shrink-0">Direct this to:</span>
                 <button
                   type="button"
                   onClick={() => setRedirectTarget('FAN')}
-                  className={`text-sm font-bold px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                  className={`text-xs sm:text-sm font-bold px-3 py-1 rounded-lg transition-all cursor-pointer shrink-0 ${
                     redirectTarget === 'FAN' ? 'bg-peach-medium/30 text-peach-medium border-2 border-peach-medium/50' : 'bg-charcoal/40 text-cream-dim border-2 border-transparent'
                   }`}
                 >
@@ -297,7 +297,7 @@ export default function DebateArena({ idea, transcript, isBusy, onContinue, onRe
                 <button
                   type="button"
                   onClick={() => setRedirectTarget('HATER')}
-                  className={`text-sm font-bold px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                  className={`text-xs sm:text-sm font-bold px-3 py-1 rounded-lg transition-all cursor-pointer shrink-0 ${
                     redirectTarget === 'HATER' ? 'bg-[var(--color-peach-medium)]/20 text-[var(--color-peach-medium)] border-2 border-[var(--color-peach-medium)]/40' : 'bg-charcoal/40 text-cream-dim border-2 border-transparent'
                   }`}
                 >
@@ -309,13 +309,13 @@ export default function DebateArena({ idea, transcript, isBusy, onContinue, onRe
             {inputMode === 'witness' && (
               <div className="mb-3">
                 <div className="flex items-center gap-2 flex-wrap mb-2">
-                  <span className="text-xs text-cream-dim/60 font-bold">Summon:</span>
+                  <span className="text-xs text-cream-dim/60 font-bold shrink-0">Summon:</span>
                   {(Object.keys(WITNESS_ARCHETYPE_LABELS) as WitnessArchetype[]).map((key) => (
                     <button
                       key={key}
                       type="button"
                       onClick={() => setWitnessArchetype(key)}
-                      className={`text-sm font-bold px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                      className={`text-xs sm:text-sm font-bold px-3 py-1 rounded-lg transition-all cursor-pointer shrink-0 ${
                         witnessArchetype === key
                           ? 'bg-cream/20 text-cream border-2 border-cream/40'
                           : 'bg-charcoal/40 text-cream-dim border-2 border-transparent'
