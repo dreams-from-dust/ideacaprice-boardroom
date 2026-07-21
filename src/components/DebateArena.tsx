@@ -288,7 +288,7 @@ export default function DebateArena({ idea, transcript, isBusy, onContinue, onRe
                 <button
                   type="button"
                   onClick={() => setRedirectTarget('FAN')}
-                  className={`text-xs sm:text-sm font-bold px-3 py-1 rounded-lg transition-all cursor-pointer shrink-0 ${
+                  className={`text-xs sm:text-sm font-bold px-3 py-1 rounded-lg transition-all cursor-pointer min-w-0 max-w-full text-left ${
                     redirectTarget === 'FAN' ? 'bg-peach-medium/30 text-peach-medium border-2 border-peach-medium/50' : 'bg-charcoal/40 text-cream-dim border-2 border-transparent'
                   }`}
                 >
@@ -297,7 +297,7 @@ export default function DebateArena({ idea, transcript, isBusy, onContinue, onRe
                 <button
                   type="button"
                   onClick={() => setRedirectTarget('HATER')}
-                  className={`text-xs sm:text-sm font-bold px-3 py-1 rounded-lg transition-all cursor-pointer shrink-0 ${
+                  className={`text-xs sm:text-sm font-bold px-3 py-1 rounded-lg transition-all cursor-pointer min-w-0 max-w-full text-left ${
                     redirectTarget === 'HATER' ? 'bg-[var(--color-peach-medium)]/20 text-[var(--color-peach-medium)] border-2 border-[var(--color-peach-medium)]/40' : 'bg-charcoal/40 text-cream-dim border-2 border-transparent'
                   }`}
                 >

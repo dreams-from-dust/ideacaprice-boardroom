@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { Capacitor } from "@capacitor/core";
 import { App as CapacitorApp } from "@capacitor/app";
-import IdeaInput from "./components/IdeaInput";
-import DebateArena from "./components/DebateArena";
-import StrategyGuide from "./components/StrategyGuide";
+// These three screens are only ever shown one at a time, based on activeView,
+// and are not needed on the very first paint. Loading them lazily means the
+// initial JavaScript a person's device has to download and parse is
+// meaningfully smaller, which matters most on a slow or constrained mobile
+// connection, exactly where this delay is most noticeable.
+const IdeaInput = lazy(() => import("./components/IdeaInput"));
+const DebateArena = lazy(() => import("./components/DebateArena"));
+const StrategyGuide = lazy(() => import("./components/StrategyGuide"));
 import WelcomeView from "./components/WelcomeView";
 import AuthModal from "./components/AuthModal";
 import HistoryDrawer from "./components/HistoryDrawer";
@@ -508,33 +513,41 @@ export default function App() {
                 />
               )}
 
-              {activeView === "INPUT" && (
-                <IdeaInput
-                  onSubmit={handleIdeaSubmit}
-                  isLoading={isLoading}
-                />
-              )}
+              <Suspense
+                fallback={
+                  <div className="w-full flex items-center justify-center py-24">
+                    <div className="w-10 h-10 border-2 border-charcoal-light border-t-peach rounded-full animate-spin" />
+                  </div>
+                }
+              >
+                {activeView === "INPUT" && (
+                  <IdeaInput
+                    onSubmit={handleIdeaSubmit}
+                    isLoading={isLoading}
+                  />
+                )}
 
-              {activeView === "DEBATE" && transcript.length > 0 && (
-                <DebateArena
-                  idea={currentIdea}
-                  transcript={transcript}
-                  isBusy={isLoading}
-                  onContinue={handleContinueDebate}
-                  onRequestVerdict={handleRequestVerdict}
-                />
-              )}
+                {activeView === "DEBATE" && transcript.length > 0 && (
+                  <DebateArena
+                    idea={currentIdea}
+                    transcript={transcript}
+                    isBusy={isLoading}
+                    onContinue={handleContinueDebate}
+                    onRequestVerdict={handleRequestVerdict}
+                  />
+                )}
 
-              {activeView === "REPORT" && finalReport && (
-                <StrategyGuide
-                  idea={currentIdea}
-                  report={finalReport}
-                  onReset={handleReset}
-                  onIntervene={handleInterveneSubmit}
-                  isIntervening={isLoading}
-                  onPdfToast={setPdfToast}
-                />
-              )}
+                {activeView === "REPORT" && finalReport && (
+                  <StrategyGuide
+                    idea={currentIdea}
+                    report={finalReport}
+                    onReset={handleReset}
+                    onIntervene={handleInterveneSubmit}
+                    isIntervening={isLoading}
+                    onPdfToast={setPdfToast}
+                  />
+                )}
+              </Suspense>
             </>
           )}
         </div>
